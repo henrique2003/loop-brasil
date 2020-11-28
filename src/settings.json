@@ -1,0 +1,10 @@
+{
+  "fontFamily": "Open Sans",
+  "colors": {
+    "green": "#4c9300",
+    "extraLightGrey": "#f7f7f8",
+    "lightGrey": "rgba(0,0,0,0.1)",
+    "grey": "#2e323c",
+    "white": "#fff"
+  }
+}

@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
-import { Box, Grid, Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { ArrowBackIos } from '@material-ui/icons'
-import Card from './Card'
+import { Card, FormDate } from './index'
+import { colors, fontFamily } from '../settings.json'
 
 function Schedule() {
   const classes = useStyles()
@@ -15,20 +16,17 @@ function Schedule() {
       >
         <Grid container direction="row">
           <ArrowBackIos className={classes.icon} />
-          <Typography component="p">
-            <Box
-              fontFamily="Open Sans"
-              fontSize={17}
-            >Voltar</Box>
-          </Typography>
+          <Typography className={classes.backText}>Voltar</Typography>
         </Grid>
       </Link>
       <Grid
         container
         direction="row"
         className={classes.information}
+        spacing={3}
       >
         <Card />
+        <FormDate />
       </Grid>
     </div>
   )
@@ -45,20 +43,24 @@ const useStyles = makeStyles({
     fontSize: 18,
     marginTop: 4,
     marginRight: 5,
-    color: '#2e323c'
+    color: colors.grey
   },
   back: {
     marginTop: 3,
     marginRight: 5,
-    color: '#2e323c',
+    color: colors.grey,
     textDecoration: 'none'
   },
   information: {
-    marginTop: 40
+    marginTop: 20
   },
   media: {
     height: 200,
   },
+  backText: {
+    fontSize: 17,
+    fontFamily: fontFamily
+  }
 })
 
 
