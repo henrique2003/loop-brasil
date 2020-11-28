@@ -5,6 +5,9 @@
     "extraLightGrey": "#f7f7f8",
     "lightGrey": "rgba(0,0,0,0.1)",
     "grey": "#2e323c",
-    "white": "#fff"
+    "white": "#fff",
+    "red": "#ff123c",
+    "lightRed": "#ff5876",
+    "extraLightRed": "#ffcfd8"
   }
 }

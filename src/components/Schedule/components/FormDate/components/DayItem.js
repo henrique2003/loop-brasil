@@ -1,7 +1,7 @@
 import { Grid, makeStyles, Typography } from '@material-ui/core'
-import { colors, fontFamily } from '../settings.json'
+import { colors, fontFamily } from '../../../../../settings.json'
 
-function DayItem ({ numberDay, weekDay, dayFoucus, setDayFoucus, selectHours }) {
+function DayItem ({ numberDay, weekDay, numberDayFoucus, setDayFoucus, selectHours, setWeekDay }) {
 
   const classes = useStyles()
 
@@ -18,17 +18,18 @@ function DayItem ({ numberDay, weekDay, dayFoucus, setDayFoucus, selectHours }) 
   return (
     <Grid item xs={2}>
       <div
-        className={dayFoucus === numberDay ? classes.circleFocus : classes.circle}
+        className={numberDayFoucus === numberDay ? classes.circleFocus : classes.circle}
         onClick={() => {
           setDayFoucus(numberDay)
           selectHours(numberDay)
+          setWeekDay(weekDay)
         }}
       >
         <Typography
-          className={dayFoucus === numberDay ? classes.weekDayFocus : classes.weekDay}
+          className={numberDayFoucus === numberDay ? classes.weekDayFocus : classes.weekDay}
         >{handleWeekDay(weekDay)}</Typography>
         <Typography
-          className={dayFoucus === numberDay ? classes.numberDayFocus : classes.numberDay}
+          className={numberDayFoucus === numberDay ? classes.numberDayFocus : classes.numberDay}
         >{numberDay}</Typography>
       </div>
     </Grid>

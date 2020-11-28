@@ -3,7 +3,8 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import {
-  Schedule
+  Schedule,
+  Message
 } from './components'
 import { fontFamily } from './settings.json'
 
@@ -19,8 +20,9 @@ function App() {
       <Router>
         <CssBaseline />
         <Switch>
-          <Route path="/" component={Schedule} />
-          <Route path="/agenda" component={Schedule} />
+          <Route path="/" exact component={Schedule} />
+          <Route path="/mensagem" component={Message} />
+          {/* <Route component={Schedule} /> */}
         </Switch>
       </Router>
     </ThemeProvider>

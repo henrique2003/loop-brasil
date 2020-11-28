@@ -1,5 +1,5 @@
 import { makeStyles, Typography } from "@material-ui/core"
-import { colors, fontFamily } from '../settings.json'
+import { colors, fontFamily } from '../../../../../settings.json'
 
 function HourItem({ hour, focusHour, setHour }) {
   const classes = useStyles()

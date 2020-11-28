@@ -2,18 +2,15 @@ import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid, Typography } from '@material-ui/core'
 import { ArrowBackIos } from '@material-ui/icons'
-import { Card, FormDate } from './index'
-import { colors, fontFamily } from '../settings.json'
+import { Card, FormDate } from './components'
+import { colors, fontFamily } from '../../settings.json'
 
 function Schedule() {
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
-      <Link
-        to="/"
-        className={classes.back}
-      >
+      <Link to="/" className={classes.back}>
         <Grid container direction="row">
           <ArrowBackIos className={classes.icon} />
           <Typography className={classes.backText}>Voltar</Typography>

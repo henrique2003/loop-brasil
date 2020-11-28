@@ -8,8 +8,8 @@ import {
   makeStyles
 } from '@material-ui/core'
 import { PinDrop } from '@material-ui/icons'
-import { FiatArgo } from '../assets'
-import { colors, fontFamily } from '../settings.json'
+import { FiatArgo } from '../../../assets'
+import { colors, fontFamily } from '../../../settings.json'
 
 export default function MediaCard() {
   const classes = useStyles()
@@ -17,31 +17,29 @@ export default function MediaCard() {
   return (
     <Grid item xs={4}>
       <Card className={classes.root}>
-        <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image={FiatArgo}
-            title="Fiat Argo"
-          />
-          <CardContent>
-            <Typography variant="h5" component="h2" className={classes.title}>Fiat Argo</Typography>
+        <CardMedia
+          className={classes.media}
+          image={FiatArgo}
+          title="Fiat Argo"
+        />
+        <CardContent>
+          <Typography variant="h5" component="h2" className={classes.title}>Fiat Argo</Typography>
+          <Typography
+            variant="subtitle1"
+            color="textSecondary"
+            component="p"
+            className={classes.info}
+          >Rex full 8v elétrico 4p automático</Typography>
+          <Typography variant="body1" component="p" className={classes.cost}>R$ 13.700</Typography>
+          <Grid container direction="row" className={classes.location}>
+            <PinDrop className={classes.icon} />
             <Typography
-              variant="subtitle1"
-              color="textSecondary"
               component="p"
-              className={classes.info}
-            >Rex full 8v elétrico 4p automático</Typography>
-            <Typography variant="body1" component="p" className={classes.cost}>R$ 13.700</Typography>
-              <Grid container direction="row" className={classes.location}>
-                <PinDrop className={classes.icon} />
-                <Typography
-                  component="p"
-                  variant="body2"
-                  className={classes.infoLocation}
-                >Mogi das Cruzes - SP</Typography>
-              </Grid>
-          </CardContent>
-        </CardActionArea>
+              variant="body2"
+              className={classes.infoLocation}
+            >Mogi das Cruzes - SP</Typography>
+          </Grid>
+        </CardContent>
       </Card>
     </Grid>
   )
@@ -53,10 +51,10 @@ const useStyles = makeStyles({
     borderWidth: 1,
     borderStyle: 'solid',
     borderColor: colors.lightGrey,
-    minHeight: 310
+    minHeight: 420
   },
   media: {
-    height: 200,
+    height: 220,
   },
   title: {
     fontWeight: 500,
@@ -78,11 +76,11 @@ const useStyles = makeStyles({
     fontFamily: fontFamily
   },
   location: {
-    marginTop: 15,
+    marginTop: 18,
     borderTopColor: colors.lightGrey,
     borderTopStyle: 'solid',
     borderTopWidth: 1,
-    paddingTop: 15
+    paddingTop: 18
   },
   icon: {
     fontSize: 20,
