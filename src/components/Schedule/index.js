@@ -34,7 +34,7 @@ const useStyles = makeStyles({
     maxWidth: 1000,
     marginRight: 'auto',
     marginLeft: 'auto',
-    marginTop: 100
+    marginTop: 40
   },
   icon: {
     fontSize: 18,

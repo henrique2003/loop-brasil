@@ -4,7 +4,8 @@ import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import {
   Schedule,
-  Message
+  Message,
+  Header
 } from './components'
 import { fontFamily } from './settings.json'
 
@@ -19,10 +20,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <CssBaseline />
+        <Header />
         <Switch>
           <Route path="/" exact component={Schedule} />
           <Route path="/mensagem" component={Message} />
-          {/* <Route component={Schedule} /> */}
+          <Route component={Schedule} />
         </Switch>
       </Router>
     </ThemeProvider>
