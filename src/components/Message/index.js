@@ -1,43 +1,59 @@
-import { makeStyles, Typography } from '@material-ui/core'
+import { makeStyles, Typography, useMediaQuery } from '@material-ui/core'
 import { Check, CalendarToday, PinDrop } from '@material-ui/icons'
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { colors, fontFamily } from '../../settings.json'
 
-function Message () {
+function Message({ show, schedule }) {
+  const { month, weekDay, numberDay, year, hour } = schedule
+
+  const responsive = useMediaQuery('(max-width: 1250px)')
+
   const classes = useStyles()
 
   return (
-    <div className={classes.root}>
-      <div className={classes.lightCircle}>
-        <div className={classes.circle}>
-          <Check className={classes.checkIcon}/>
+    <div className={responsive && classes.margin}>
+      <div className={show ? classes.root : classes.none}>
+        <div className={responsive && classes.margin}>
+          <div className={classes.lightCircle}>
+            <div className={classes.circle}>
+              <Check className={classes.checkIcon} />
+            </div>
+          </div>
+          <Typography className={classes.message}>Agendamento concluído</Typography>
+          <Typography className={classes.phraseData}>
+            <CalendarToday className={classes.calendarIcon} />
+            {weekDay}, {numberDay} {month} {year} às {hour}
+            <span className={classes.trace}>|</span>
+            <PinDrop className={classes.pinDropIcon} />
+            Avenida Bandeirantes, 1100 - Morgi das Cruzes
+        </Typography>
+          <div className={classes.center}>
+            <a href="#" className={classes.link}>Outros veículos</a>
+          </div>
         </div>
-      </div>
-      <Typography className={classes.message}>Agendamento concluído</Typography>
-      <Typography className={classes.phraseData}>
-        <CalendarToday className={classes.calendarIcon} />
-          Segunda-feira, 22 março 2020 às 11:00
-          <span className={classes.trace}>|</span> 
-        <PinDrop className={classes.pinDropIcon} />
-          Avenida Bandeirantes, 1100 - Morgi das Cruzes
-      </Typography>
-      <div className={classes.center}>
-        <Link to="/" className={classes.link}>Outros veículos</Link>
       </div>
     </div>
   )
 }
 
 const useStyles = makeStyles({
+  none: {
+    display: 'none'
+  },
   root: {
     margin: '0 auto',
     marginTop: 120,
     maxWidth: 1200,
+    width: '100%',
     background: colors.extraLightGrey,
     borderColor: colors.lightGrey,
     borderWidth: 1,
     borderStyle: 'solid',
     borderRadius: 5
+  },
+  margin: {
+    marginLeft: 40,
+    marginRight: 40
   },
   lightCircle: {
     width: 100,
@@ -115,4 +131,8 @@ const useStyles = makeStyles({
   }
 })
 
-export default Message
+const mapStateToProps = state => ({
+  schedule: state.schedule
+})
+
+export default connect(mapStateToProps)(Message)

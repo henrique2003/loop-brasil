@@ -8,8 +8,8 @@ import {
   makeStyles
 } from '@material-ui/core'
 import { PinDrop } from '@material-ui/icons'
-import { FiatArgo } from '../../../assets'
-import { colors, fontFamily } from '../../../settings.json'
+import { FiatArgo } from '../../../../assets'
+import { colors, fontFamily } from '../../../../settings.json'
 
 export default function MediaCard() {
   const classes = useStyles()

@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
+import { Provider } from 'react-redux'
 import {
   Schedule,
-  Message,
   Header
 } from './components'
 import { fontFamily } from './settings.json'
+import store from './store'
 
 function App() {
   const theme = createMuiTheme({
@@ -17,17 +17,13 @@ function App() {
   })
 
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         <Header />
-        <Switch>
-          <Route path="/" exact component={Schedule} />
-          <Route path="/mensagem" component={Message} />
-          <Route component={Schedule} />
-        </Switch>
-      </Router>
-    </ThemeProvider>
+        <Schedule />
+      </ThemeProvider>
+    </Provider>
   )
 }
 

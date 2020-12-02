@@ -1,10 +1,8 @@
 import {
   makeStyles,
   AppBar,
-  Toolbar,
-  Typography
+  Toolbar
 } from '@material-ui/core'
-import { NavLink } from 'react-router-dom'
 import { Logo } from '../../assets'
 import { colors, fontFamily } from '../../settings.json'
 
@@ -18,9 +16,9 @@ function Header () {
           <div className={classes.logoContainer}>
             <img src={Logo} alt="Loop Brasil" className={classes.logo} />
           </div>
-          <NavLink to="/" className={classes.navLink}>Vender</NavLink>
-          <NavLink to="/" className={classes.navLink}>Comprar</NavLink>
-          <NavLink to="/" className={classes.navLink}>Lojas</NavLink>
+          <a to="/" className={classes.navLink}>Vender</a>
+          <a to="/" className={classes.navLink}>Comprar</a>
+          <a to="/" className={classes.navLink}>Lojas</a>
         </Toolbar>
       </AppBar>
     </div>

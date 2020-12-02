@@ -8,7 +8,7 @@ import schedule from '../../../../date.json'
 
 import 'pure-react-carousel/dist/react-carousel.es.css'
 
-function FormDate() {
+function FormDate({ show, sumitFormDate }) {
   const [Schedule, setSchedule] = useState({
     month: '',
     year: '',
@@ -27,6 +27,20 @@ function FormDate() {
     setSchedule(schedule)
     setHours(schedule.dates[0].hours)
   }, [])
+
+  function onSubmit(e) {
+    e.preventDefault()
+
+    const data = {
+      month,
+      year,
+      weekDay: WeekDay,
+      numberDay: NumberDay,
+      hour: Hour
+    }
+
+    sumitFormDate(data)
+  }
 
   function countLoop(arrayLength) {
     let count = 0
@@ -56,8 +70,8 @@ function FormDate() {
   const classes = useStyles()
 
   return (
-    <Grid item xs={8}>
-      <form>
+    <Grid item xs={8} className={!show && classes.none}>
+      <form onSubmit={e => onSubmit(e)}>
         <Card className={classes.root}>
           <Typography component="div" className={classes.header}>
             <Box className={classes.title}>Agende o dia e horário da sua visita</Box>
@@ -114,6 +128,9 @@ function FormDate() {
 }
 
 const useStyles = makeStyles({
+  none: {
+    display: 'none'
+  },
   root: {
     boxShadow: 'none',
     borderWidth: 1,
@@ -128,7 +145,7 @@ const useStyles = makeStyles({
     paddingBottom: 20
   },
   title: {
-    fontSize: 25,
+    fontSize: 22,
     color: 'white',
     fontFamily: fontFamily
   },
